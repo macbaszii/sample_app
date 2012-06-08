@@ -1,57 +1,47 @@
+# **Old RSpec Test Driven Development 
+# it "should have content 'About us'" do
+#       visit about_path
+#       page.should have_content('About Us')
+#     end
+#     
+#     it "should have the right title" do
+#       visit about_path
+#       page.should have_selector('title', 
+#                                 :text => "Ruby on Rails Tutorial Sample App | About Us")
+#     end
+
 require 'spec_helper'
 
 describe "StaticPages" do
+  
+  subject { page }
 
   describe "Home page" do
-    it "should have the content 'Sample App'" do
-      visit root_path
-      page.should have_content('Sample App')
-    end
+    before { visit root_path }
     
-    it "should have the right title" do
-      visit root_path
-      page.should have_selector('title', 
-                                :text => "Ruby on Rails Tutorial Sample App | Home")
-    end
+    it { should have_content('Sample App') }
+    it { should have_selector('title', text: full_title("Home")) }
   end
   
   describe "Help Page" do
-    it "should have content 'Help'" do
-      visit help_path
-      page.should have_content('Help')
-    end
+    before { visit help_path }
     
-    it "should have the right title" do
-      visit help_path
-      page.should have_selector('title', 
-                                :text => "Ruby on Rails Tutorial Sample App | Help")
-    end
+    it { should have_content('Help') }
+    it { should have_selector('title', text: full_title("Help")) }
   end
   
   describe "About Page" do
-    it "should have content 'About us'" do
-      visit about_path
-      page.should have_content('About Us')
-    end
+    before { visit about_path }
     
-    it "should have the right title" do
-      visit about_path
-      page.should have_selector('title', 
-                                :text => "Ruby on Rails Tutorial Sample App | About Us")
-    end
+    it { should have_content('About Us') }
+    it { should have_selector('title', text: full_title("About Us")) }
   end
   
   describe "Contact Page" do
-    it "should have content 'Contact'" do
-      visit contact_path
-      page.should have_content('Contact')
-    end
+    before { visit contact_path }
     
-    it "should have the right title" do
-      visit contact_path
-      page.should have_selector('title', 
-                                :text => "Ruby on Rails Tutorial Sample App | Contact")
-    end
+    it { should have_content('Contact') }
+    it { should have_selector('title', text: full_title("Contact")) }
   end
   
 end
