@@ -11,7 +11,7 @@ group :development, :test do
   gem 'sqlite3' 
   gem 'rspec-rails'
   gem 'annotate', '~> 2.4.1.beta' 
-  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 
